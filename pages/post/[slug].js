@@ -5,7 +5,7 @@ import { getFormattedDate } from '@lib/utils';
 import { Icon, Layout } from '@components';
 import { useAuth } from '@contexts/auth';
 import 'semantic-ui-css/semantic.min.css'
-
+import Disqus from '../../components/Disqus';
 const PostPage = ({ post }) => {
     const router = useRouter();
     if (!post && typeof window !== 'undefined') {
@@ -51,6 +51,10 @@ const PostPage = ({ post }) => {
                 <br></br>
                 <span>Published {getFormattedDate(post.dateCreated)}</span>
                 <p dangerouslySetInnerHTML={{ __html: post.content }}></p>
+            </div>
+            <div>
+            <Disqus />
+
             </div>
         </Layout>
     );
