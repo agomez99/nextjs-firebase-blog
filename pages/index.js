@@ -7,6 +7,8 @@ import {Divider} from 'semantic-ui-react';
 import { getPosts } from '@lib/firebase';
 import { Layout } from '@components';
 export { default as Icon } from '../components/Icon/Icon'
+import GoogleAnalytics from "../components/googleAnalytics";
+import Head from 'next/head';
 
 const getFormattedDate = (milliseconds) => {
   const formatOptions = {
@@ -22,6 +24,10 @@ const getFormattedDate = (milliseconds) => {
 
 const HomePage = ({ posts }) => (
   <Layout>
+  <Head>
+  </Head>
+  <GoogleAnalytics />
+
   <div className={styles.HomePage}>
     <h1>Blog Posts</h1>
     <Divider />
