@@ -1,7 +1,7 @@
 import styles from '../../styles/Layout.module.scss';
 
 import { signOut } from '@lib/firebase';
-
+import Darkmode from './Darkmode'
 import { useAuth } from '@contexts/auth';
 import { useRouter } from 'next/router'
 import {
@@ -68,10 +68,10 @@ const router = useRouter()
         )}
       </Menu.Item>
     </Menu>
-      <nav>
-
-      </nav>
-      <main>{children}</main>
+      <main>
+      <Darkmode/>
+      {children}
+      </main>
     </div>
   );
 };
