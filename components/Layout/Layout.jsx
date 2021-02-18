@@ -1,5 +1,5 @@
 import styles from '../../styles/Layout.module.scss';
-
+import SocialFollow from '../../components/Layout/SocialFollow';
 import { signOut } from '@lib/firebase';
 import Darkmode from './Darkmode'
 import { useAuth } from '@contexts/auth';
@@ -53,12 +53,12 @@ const router = useRouter()
           </Dropdown.Menu>
         </Dropdown>
       </Container>
+      <SocialFollow />
       <Menu.Item as='a' header>
         {user && (
           <span>
             <Button onClick={() => signOut()}>Sign Out</Button>
             <Button onClick={() => router.push('/create')}>Create</Button>
-
           </span>
         )}
         {!user && (
@@ -67,6 +67,7 @@ const router = useRouter()
           </span>
         )}
       </Menu.Item>
+
     </Menu>
       <main>
       <Darkmode/>
