@@ -7,12 +7,12 @@ import { ThemeProvider } from 'next-themes'
 library.add(fas);
 
 const App = ({ Component, pageProps }) => (
-  <ThemeProvider>
 
   <AuthProvider>
+    <ThemeProvider>
     <Component {...pageProps} />
+    </ThemeProvider>
   </AuthProvider>
-  </ThemeProvider>
 
 );
 

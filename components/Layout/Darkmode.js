@@ -5,7 +5,7 @@ import { GlobalStyles } from '../../styles/global'
 import { lightTheme, darkTheme } from '../../styles/themes'
 import DarkModeToggle from "react-dark-mode-toggle";
 
-function Layout({ children }) {
+function Darkmode({ children }) {
     // Use the state to determine darkMode
     const [darkMode, setDarkMode] = useState()
     const [mounted, setMounted] = useState(false)
@@ -45,4 +45,4 @@ function Layout({ children }) {
   )
 }
 
-export default Layout
+export default Darkmode
