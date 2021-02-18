@@ -2,13 +2,9 @@ import { useState } from 'react';
 import { useRouter } from 'next/router'; // this is new
 import { createPost } from '@lib/firebase'; // this is new
 import styles from '@styles/create.module.scss';
-import { Layout } from '@components';
 import { useAuth } from '@contexts/auth';
 
 const CreatePage = () => {
-    const [user, userLoading] = useAuth();
-console.log(user, userLoading);
-
   const router = useRouter(); // this is new
   const [formValues, setFormValues] = useState({
     title: '',
@@ -18,34 +14,16 @@ console.log(user, userLoading);
     content: '',
   });
   const [isLoading, setIsLoading] = useState(false); // this is new
-  const [loading, setLoading] = useState(true);
-  const [currentPost, setCurrentPost] = useState();
+  const [user, userLoading] = useAuth();
+  console.log(user, userLoading);
   if (userLoading) {
     return null;
   }
-  
+   
   if (!user && typeof window !== 'undefined') {
     router.push('/404');
     return null;
   }
-  
-  if (loading) {
-    return <h1>Loading...</h1>;
-  }
-  if (loading && !currentPost) {
-    getFirebase()
-      .database()
-      .ref()
-      .child(`/posts/${slug}`)
-      .once("value")
-      .then(snapshot => {
-        if (snapshot.val()) {
-          setCurrentPost(snapshot.val());
-        }
-        setLoading(false);
-      });
-  }
-  
   /*
   This is the function we're passing to each control so we can capture
   the value in it and store it in our `formValues` variable.
@@ -102,7 +80,6 @@ console.log(user, userLoading);
   };
 
   return (
-      <Layout>
     <div className={styles.CreatePage}>
       <form onSubmit={handleSubmit}>
         <h1>Create a new post</h1>
@@ -155,7 +132,6 @@ console.log(user, userLoading);
         </button>
       </form>
     </div>
-    </Layout>
   );
 };
 

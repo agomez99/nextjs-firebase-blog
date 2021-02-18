@@ -18,7 +18,9 @@ const router = useRouter()
         </span>
         {user && (
           <span>
-            <button onClick={() => signOut()}>Sign Out</button>
+            <button onClick={() => router.push('/signin')}>Sign Out</button>
+
+            <button onClick={() =>  router.push('/create')}>New Blog</button>
           </span>
         )}
         {!user && (
