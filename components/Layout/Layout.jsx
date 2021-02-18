@@ -33,7 +33,7 @@ const router = useRouter()
           <a href="/">My Blog</a>
         </span>       
          </Menu.Item>
-        <Dropdown item simple text='Dropdown'>
+        {/* <Dropdown item simple text='Dropdown'>
           <Dropdown.Menu>
             <Dropdown.Item>List Item</Dropdown.Item>
             <Dropdown.Item>List Item</Dropdown.Item>
@@ -51,10 +51,11 @@ const router = useRouter()
             <span onClick={() => router.push('/blogindex')}>Blog Index</span>
             </Dropdown.Item>
           </Dropdown.Menu>
-        </Dropdown>
+        </Dropdown> */}
       </Container>
-      <SocialFollow />
-      <Menu.Item as='a' header>
+
+
+      <Menu.Item >
         {user && (
           <span>
             <Button onClick={() => signOut()}>Sign Out</Button>
@@ -67,7 +68,9 @@ const router = useRouter()
           </span>
         )}
       </Menu.Item>
-
+      <div>
+      <SocialFollow />
+      </div>
     </Menu>
       <main>
       <Darkmode/>

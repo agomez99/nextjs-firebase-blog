@@ -6,6 +6,7 @@ import { Icon, Layout } from '@components';
 import { useAuth } from '@contexts/auth';
 import 'semantic-ui-css/semantic.min.css'
 import Disqus from '../../components/Disqus';
+import {Divider} from 'semantic-ui-react'
 const PostPage = ({ post }) => {
     const router = useRouter();
     if (!post && typeof window !== 'undefined') {
@@ -23,6 +24,8 @@ const PostPage = ({ post }) => {
         <Layout>
             <div className={styles.PostPage}>
                 <img src={post.coverImage} alt={post.coverImageAlt} />
+                <Divider />
+
                 <div>
                     <h1>{post.title}</h1>
 
@@ -52,6 +55,12 @@ const PostPage = ({ post }) => {
                 <span>Published {getFormattedDate(post.dateCreated)}</span>
                 <p dangerouslySetInnerHTML={{ __html: post.content }}></p>
             </div>
+            <Divider />
+            <div style={{display:"flex", marginTop:"5%"}}>
+            <img src="https://spotify-now-playing-woad.vercel.app/api/spotify-playing" style={{display:"inlineFlex", margin:"auto"}} lt="Spotify Now Playing" width="50%"/>
+            </div>
+            <Divider />
+
             <div>
             <Disqus />
 

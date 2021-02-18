@@ -3,9 +3,11 @@
 // https://nextjs.org/docs/basic-features/pages
 import 'semantic-ui-css/semantic.min.css'
 import styles from '@styles/index.module.scss';
+import {Divider} from 'semantic-ui-react';
 import { getPosts } from '@lib/firebase';
 import { Layout } from '@components';
 export { default as Icon } from '../components/Icon/Icon'
+
 const getFormattedDate = (milliseconds) => {
   const formatOptions = {
     weekday: 'long',
@@ -22,6 +24,7 @@ const HomePage = ({ posts }) => (
   <Layout>
   <div className={styles.HomePage}>
     <h1>Blog Posts</h1>
+    <Divider />
     {posts.map((post) => (
       <article key={post.slug}>
         <img src={post.coverImage} alt={post.coverImageAlt} />
