@@ -4,7 +4,6 @@ import { createPost } from '@lib/firebase'; // this is new
 import styles from '@styles/create.module.scss';
 import { useAuth } from '@contexts/auth';
 import { Button, Checkbox, Form } from 'semantic-ui-react'
-import Lay from '../components/Layout/Darkmode'
 
 const CreatePage = () => {
   const router = useRouter(); // this is new

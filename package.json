@@ -21,12 +21,17 @@
     "firebase": "^8.2.7",
     "next": "^10.0.7",
     "next-themes": "0.0.10",
+    "popmotion": "^9.1.0",
     "react": "^17.0.1",
     "react-dark-mode-toggle": "^0.2.0",
     "react-dom": "^17.0.1",
+    "react-scripts": "^4.0.2",
     "sass": "^1.32.7",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.0.3",
     "styled-components": "^5.2.1"
+  },
+  "devDependencies": {
+    "react-kawaii": "^0.17.0"
   }
 }
