@@ -4,6 +4,7 @@ import { getPostBySlug, updatePost } from '@lib/firebase';
 import { useAuth } from '@contexts/auth';
 import { Layout } from '@components';
 import styles from '@styles/edit.module.scss';
+import 'semantic-ui-css/semantic.min.css'
 
 const EditPage = ({ post }) => {
   const router = useRouter();

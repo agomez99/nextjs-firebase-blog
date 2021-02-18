@@ -3,6 +3,8 @@ import { useRouter } from 'next/router'; // this is new
 import { createPost } from '@lib/firebase'; // this is new
 import styles from '@styles/create.module.scss';
 import { useAuth } from '@contexts/auth';
+import { Button, Checkbox, Form } from 'semantic-ui-react'
+import Lay from '../components/Layout/Layout'
 
 const CreatePage = () => {
   const router = useRouter(); // this is new
@@ -81,7 +83,7 @@ const CreatePage = () => {
 
   return (
     <div className={styles.CreatePage}>
-      <form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <h1>Create a new post</h1>
         <div>
           <label htmlFor="title">Title</label>
@@ -127,10 +129,10 @@ const CreatePage = () => {
             onChange={handleChange}
           />
         </div>
-        <button type="submit" disabled={isLoading}>
+        <Button type="submit" disabled={isLoading}>
           {isLoading ? 'Creating...' : 'Create'}
-        </button>
-      </form>
+        </Button>
+      </Form>
     </div>
   );
 };

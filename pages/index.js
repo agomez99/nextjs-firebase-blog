@@ -2,6 +2,7 @@
 // can read more about Pages in the Next.js docs at:
 // https://nextjs.org/docs/basic-features/pages
 import 'semantic-ui-css/semantic.min.css'
+import Lay from '../components/Layout/Layout'
 
 import styles from '@styles/index.module.scss';
 import { getPosts } from '@lib/firebase';
@@ -21,6 +22,7 @@ const getFormattedDate = (milliseconds) => {
 
 const HomePage = ({ posts }) => (
   <Layout>
+
   <div className={styles.HomePage}>
     <h1>Blog Posts</h1>
     {posts.map((post) => (
