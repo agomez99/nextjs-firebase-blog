@@ -14,7 +14,7 @@ const router = useRouter()
     <div className={styles.Layout}>
       <nav>
         <span>
-          <a href="/">My Next.js Blog</a>
+          <a href="/">My Blog</a>
         </span>
         {user && (
           <span>

@@ -25,6 +25,8 @@ const PostPage = ({ post }) => {
                 <img src={post.coverImage} alt={post.coverImageAlt} />
                 <div>
                     <h1>{post.title}</h1>
+
+                    {user && (
                     <span>
                         <a href={`/edit/${post.slug}`}>
                             <Icon name="pencil-alt" />
@@ -43,6 +45,7 @@ const PostPage = ({ post }) => {
                             <Icon name="trash-alt" />
                         </button>
                     </span>
+                    )}
                 </div>
 
                 <br></br>

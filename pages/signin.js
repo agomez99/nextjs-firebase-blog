@@ -3,6 +3,9 @@ import { useRouter } from 'next/router';
 import { signIn } from '@lib/firebase';
 import { useAuth } from '@contexts/auth';
 import styles from '@styles/signin.module.scss';
+import 'semantic-ui-css/semantic.min.css'
+import { Button, Form, Grid, Header,Message, Segment } from 'semantic-ui-react'
+import Image from 'next/image'
 
 const SignInPage = () => {
   const router = useRouter();
@@ -46,26 +49,45 @@ const SignInPage = () => {
   };
 
   return (
-    <div className={styles.SignIn}>
-      <form onSubmit={handleSubmit}>
-        <h1>Please Sign In</h1>
-        <label htmlFor="email">Email</label>
-        <input
+
+
+
+    <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+    <Grid.Column style={{ maxWidth: 450 }}>
+      <Header as='h2' color='teal' textAlign='center'>
+        <Image src='/logo.png'        
+        alt="Picture of the author"
+        width={400}
+        height={400}
+        /> Log-in to your account
+      </Header>
+      <Form size='large' onSubmit={handleSubmit}>
+        <Segment stacked>
+          <Form.Input fluid icon='user' iconPosition='left' placeholder='E-mail address' 
           id="email"
           type="email"
           value={values.email}
-          onChange={handleChange}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          id="password"
+          onChange={handleChange}/>
+          <Form.Input
+            fluid
+            icon='lock'
+            iconPosition='left'
+            placeholder='Password'
+            type='password'
+            id="password"
           type="password"
           value={values.password}
           onChange={handleChange}
-        />
-        <button type="submit">Sign In</button>
-      </form>
-    </div>
+          />
+
+          <Button color='teal' fluid size='large' type="submit">
+            Login
+          </Button>
+        </Segment>
+      </Form>
+    </Grid.Column>
+  </Grid>
+
   );
 };
 
