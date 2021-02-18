@@ -74,7 +74,6 @@ const Layout = ({ children }) => {
 
             </nav>
             <main>
-                <Dark/>
                 {children}
             </main>
         </div>
