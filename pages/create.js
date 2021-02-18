@@ -3,8 +3,12 @@ import { useRouter } from 'next/router'; // this is new
 import { createPost } from '@lib/firebase'; // this is new
 import styles from '@styles/create.module.scss';
 import { Layout } from '@components';
+import { useAuth } from '@contexts/auth';
 
 const CreatePage = () => {
+    const [user, userLoading] = useAuth();
+console.log(user, userLoading);
+
   const router = useRouter(); // this is new
   const [formValues, setFormValues] = useState({
     title: '',
@@ -16,6 +20,15 @@ const CreatePage = () => {
   const [isLoading, setIsLoading] = useState(false); // this is new
   const [loading, setLoading] = useState(true);
   const [currentPost, setCurrentPost] = useState();
+  if (userLoading) {
+    return null;
+  }
+  
+  if (!user && typeof window !== 'undefined') {
+    router.push('/404');
+    return null;
+  }
+  
   if (loading) {
     return <h1>Loading...</h1>;
   }

@@ -5,7 +5,7 @@
 import styles from '@styles/index.module.scss';
 import { getPosts } from '@lib/firebase';
 import { Layout } from '@components';
-
+export { default as Icon } from '../components/Icon/Icon'
 const getFormattedDate = (milliseconds) => {
   const formatOptions = {
     weekday: 'long',

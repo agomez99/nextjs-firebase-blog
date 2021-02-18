@@ -2,7 +2,9 @@
     nav {
       padding: 24px;
       background-color: #1a73e8;
-  
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       span {
         a {
           font-size: 1.6rem;
@@ -14,6 +16,10 @@
             text-decoration: underline;
           }
         }
+        button {
+            color: #1a73e8;
+            background-color: white;
+          }
       }
     }
     main {
