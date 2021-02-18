@@ -60,7 +60,6 @@ const Layout = ({ children }) => {
                         <span>
                             <Button onClick={() => signOut()}>Sign Out</Button>
                             <Button onClick={() => router.push('/create')}>Create</Button>
-                            <Dark/>
 
                         </span>
                     )}
@@ -70,6 +69,7 @@ const Layout = ({ children }) => {
                         </span>
                     )}
                 </Menu.Item>
+ 
             </Menu>
             <nav>
 
