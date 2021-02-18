@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router'; // this is new
 import { createPost } from '@lib/firebase'; // this is new
 import styles from '@styles/create.module.scss';
+import { Layout } from '@components';
 
 const CreatePage = () => {
   const router = useRouter(); // this is new
@@ -13,7 +14,25 @@ const CreatePage = () => {
     content: '',
   });
   const [isLoading, setIsLoading] = useState(false); // this is new
-
+  const [loading, setLoading] = useState(true);
+  const [currentPost, setCurrentPost] = useState();
+  if (loading) {
+    return <h1>Loading...</h1>;
+  }
+  if (loading && !currentPost) {
+    getFirebase()
+      .database()
+      .ref()
+      .child(`/posts/${slug}`)
+      .once("value")
+      .then(snapshot => {
+        if (snapshot.val()) {
+          setCurrentPost(snapshot.val());
+        }
+        setLoading(false);
+      });
+  }
+  
   /*
   This is the function we're passing to each control so we can capture
   the value in it and store it in our `formValues` variable.
@@ -70,6 +89,7 @@ const CreatePage = () => {
   };
 
   return (
+      <Layout>
     <div className={styles.CreatePage}>
       <form onSubmit={handleSubmit}>
         <h1>Create a new post</h1>
@@ -122,6 +142,7 @@ const CreatePage = () => {
         </button>
       </form>
     </div>
+    </Layout>
   );
 };
 
