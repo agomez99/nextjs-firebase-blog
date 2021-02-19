@@ -1,7 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from '../../styles/Layout.module.scss';
-
 import {
     faLinkedin,
     faTwitter,
@@ -19,7 +18,7 @@ import {
         <FontAwesomeIcon icon={faTwitter} size="3x" />
       </a>
       <a href="https://github.com/agomez99"
-        className="github social" id="git">
+        className="git">
         <FontAwesomeIcon icon={faGithub} size="3x" />
       </a>
 </div>

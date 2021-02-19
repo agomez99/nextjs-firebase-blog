@@ -2,6 +2,7 @@
     svg{
       margin-right: 10px;
     }
+
     nav {
       padding: 24px;
       background-color: #1a73e8;
@@ -23,15 +24,20 @@
             color: #1a73e8;
             background-color: white;
           }
+
           
       }
   
     }
+    a{
+      color:white;
+    }
     main {
-        max-width: 800px;
+        max-width: 1100px;
         margin: 0 auto;
         padding: 24px;
       }
+
       
   }
   

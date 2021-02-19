@@ -6,7 +6,12 @@ import { Icon, Layout } from '@components';
 import { useAuth } from '@contexts/auth';
 import 'semantic-ui-css/semantic.min.css'
 import Disqus from '../../components/Disqus';
-import {Divider} from 'semantic-ui-react'
+import {Divider} from 'semantic-ui-react';
+import Head from 'next/head';
+
+import {FacebookShareButton, FacebookIcon} from "react-share";
+import {TwitterShareButton, TwitterIcon} from "react-share";
+import {LinkedinShareButton, LinkedinIcon} from "react-share";
 const PostPage = ({ post }) => {
     const router = useRouter();
     if (!post && typeof window !== 'undefined') {
@@ -22,6 +27,25 @@ const PostPage = ({ post }) => {
 
     return (
         <Layout>
+         <Head>
+        <title>Austines Blog</title>
+        <meta property="og:url" content="https://agdevblog.vercel.app"/>
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Blog"/>
+        <meta property="og:description"
+          content="My blog as developer"
+        />
+        <meta property="og:image" content="https://coverimages.igi-global.com/images-e-content-pro/metadata-in-publishing.png"/>
+      
+        <meta property="fb:app_id" content="134816985125175" />
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Austine's Blog"/>
+        <meta name="twitter:description" content="My Blog As A Developer"/>
+        <meta name="twitter:image" content="https://coverimages.igi-global.com/images-e-content-pro/metadata-in-publishing.png"/>
+        <meta name="twitter:card" content="summary_large_image"/>
+        
+      </Head>
             <div className={styles.PostPage}>
             
                 <img src={post.coverImage} alt={post.coverImageAlt} />
@@ -55,17 +79,35 @@ const PostPage = ({ post }) => {
                 <br></br>
                 <span>Published {getFormattedDate(post.dateCreated)}</span>
                 <p dangerouslySetInnerHTML={{ __html: post.content }}></p>
-            </div>
-            <Divider />
+                <div style={{float:"right"}}>
+                <label>Share</label>
+          <FacebookShareButton
+            url={"https://agdevblog.vercel.app/post/"+post.slug}
+            quote={post.title}
+            hashtag="#webdeveloper">
+            <FacebookIcon size={40}  round={true}/>
+          </FacebookShareButton>
+          <TwitterShareButton
+            url={"https://agdevblog.vercel.app/post/"+post.slug}
+            quote={post.title}
+            hashtag="#webdeveloper">
+            <TwitterIcon size={40}  round={true}/>
+          </TwitterShareButton>          
+          <LinkedinShareButton
+            url={"https://agdevblog.vercel.app/"}
+            quote={post.title}
+            summary="My Blog as A Web Developer">
+            <LinkedinIcon size={40}  round={true}/>
+          </LinkedinShareButton>
+          </div>
             <div style={{display:"flex", marginTop:"5%"}}>
             <img src="https://spotify-now-playing-woad.vercel.app/api/spotify-playing" style={{display:"inlineFlex", margin:"auto"}} lt="Spotify Now Playing" width="50%"/>
             </div>
             <Divider />
+            </div>
 
-            <div>
             <Disqus />
 
-            </div>
         </Layout>
     );
 };
