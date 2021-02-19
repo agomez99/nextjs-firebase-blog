@@ -30,7 +30,7 @@ const HomePage = ({ posts }) => (
   <Layout>
       <Head>
         <title>Austines Blog</title>
-        <meta property="og:url" content="https://agblog.vercel.app/"/>
+        <meta property="og:url" content="https://agdevblog.vercel.app"/>
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Blog"/>
         <meta property="og:description"
