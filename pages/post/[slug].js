@@ -94,7 +94,7 @@ const PostPage = ({ post }) => {
             <TwitterIcon size={40}  round={true}/>
           </TwitterShareButton>          
           <LinkedinShareButton
-            url={"https://agdevblog.vercel.app/"}
+            url={"https://agdevblog.vercel.app/post/"+post.slug}
             quote={post.title}
             summary="My Blog as A Web Developer">
             <LinkedinIcon size={40}  round={true}/>
