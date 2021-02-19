@@ -23,6 +23,7 @@ const PostPage = ({ post }) => {
     return (
         <Layout>
             <div className={styles.PostPage}>
+            
                 <img src={post.coverImage} alt={post.coverImageAlt} />
                 <Divider />
 

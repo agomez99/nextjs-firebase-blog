@@ -10,6 +10,10 @@ export { default as Icon } from '../components/Icon/Icon'
 import GoogleAnalytics from "../components/googleAnalytics";
 import Head from 'next/head';
 
+import {FacebookShareButton, FacebookIcon} from "react-share";
+import {TwitterShareButton, TwitterIcon} from "react-share";
+import {LinkedinShareButton, LinkedinIcon} from "react-share";
+
 const getFormattedDate = (milliseconds) => {
   const formatOptions = {
     weekday: 'long',
@@ -24,8 +28,25 @@ const getFormattedDate = (milliseconds) => {
 
 const HomePage = ({ posts }) => (
   <Layout>
-  <Head>
-  </Head>
+      <Head>
+        <title>Austines Blog</title>
+        <meta property="og:url" content="https://agblog.vercel.app/"/>
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Blog"/>
+        <meta property="og:description"
+          content="My blog as developer"
+        />
+        <meta property="og:image" content="https://coverimages.igi-global.com/images-e-content-pro/metadata-in-publishing.png"/>
+      
+        <meta property="fb:app_id" content="134816985125175" />
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Austine's Blog"/>
+        <meta name="twitter:description" content="My blog As A Developer"/>
+        <meta name="twitter:image" content="https://coverimages.igi-global.com/images-e-content-pro/metadata-in-publishing.png"/>
+        <meta name="twitter:card" content="summary_large_image"/>
+        
+      </Head>
   <GoogleAnalytics />
 
   <div className={styles.HomePage}>
@@ -43,11 +64,31 @@ const HomePage = ({ posts }) => (
             }}
           ></p>
           <a href={`/post/${post.slug}`}>Continue Reading</a>
-
+          <label>Share</label>
+          <FacebookShareButton
+            url={`/post/${post.slug}`}
+            quote={post.title}
+            hashtag="#webdeveloper">
+            <FacebookIcon size={36} />
+          </FacebookShareButton>
+          <TwitterShareButton
+            url={`/post/${post.slug}`}
+            quote={post.title}
+            hashtag="#webdeveloper">
+            <TwitterIcon size={36} />
+          </TwitterShareButton>          
+          <LinkedinShareButton
+            url={`/post/${post.slug}`}
+            quote={post.title}
+            hashtag="#webdeveloper">
+            <LinkedinIcon size={36} />
+          </LinkedinShareButton>
         </div>
       </article>
     ))}
   </div>
+
+
   </Layout>
 );
 
