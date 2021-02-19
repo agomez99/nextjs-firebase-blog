@@ -66,19 +66,19 @@ const HomePage = ({ posts }) => (
           <a href={`/post/${post.slug}`}>Continue Reading</a>
           <label>Share</label>
           <FacebookShareButton
-            url={`/post/${post.slug}`}
+            url={"https://agdevblog.vercel.app/post/${post.slug}"}
             quote={post.title}
             hashtag="#webdeveloper">
             <FacebookIcon size={36} />
           </FacebookShareButton>
           <TwitterShareButton
-            url={`/post/${post.slug}`}
+            url={"https://agdevblog.vercel.app/post/${post.slug}"}
             quote={post.title}
             hashtag="#webdeveloper">
             <TwitterIcon size={36} />
           </TwitterShareButton>          
           <LinkedinShareButton
-            url={`/post/${post.slug}`}
+            url={"https://agdevblog.vercel.app/post/${post.slug}"}
             quote={post.title}
             hashtag="#webdeveloper">
             <LinkedinIcon size={36} />
