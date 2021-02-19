@@ -42,7 +42,7 @@ const HomePage = ({ posts }) => (
 
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Austine's Blog"/>
-        <meta name="twitter:description" content="My blog As A Developer"/>
+        <meta name="twitter:description" content="My Blog As A Developer"/>
         <meta name="twitter:image" content="https://coverimages.igi-global.com/images-e-content-pro/metadata-in-publishing.png"/>
         <meta name="twitter:card" content="summary_large_image"/>
         
@@ -74,7 +74,7 @@ const HomePage = ({ posts }) => (
           <TwitterShareButton
             url={"https://agdevblog.vercel.app/"}
             quote={post.title}
-            related="@austine_gomez"
+            related="austine_gomez"
             hashtag="#webdeveloper">
             <TwitterIcon size={36}  round={true}/>
           </TwitterShareButton>          
