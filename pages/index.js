@@ -74,6 +74,7 @@ const HomePage = ({ posts }) => (
           <TwitterShareButton
             url={"https://agdevblog.vercel.app/"}
             quote={post.title}
+            related="@austine_gomez"
             hashtag="#webdeveloper">
             <TwitterIcon size={36}  round={true}/>
           </TwitterShareButton>          
